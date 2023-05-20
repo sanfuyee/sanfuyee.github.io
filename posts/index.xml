@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>易三福</title>
-    <link>https://sanfuyee.github.io/</link>
-    <description>Recent content on 易三福</description>
+    <title>Posts on 易三福</title>
+    <link>https://sanfuyee.github.io/posts/</link>
+    <description>Recent content in Posts on 易三福</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sat, 20 May 2023 22:19:16 +0800</lastBuildDate><atom:link href="https://sanfuyee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 May 2023 22:19:16 +0800</lastBuildDate><atom:link href="https://sanfuyee.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LLM应用开发框架LangChain</title>
       <link>https://sanfuyee.github.io/posts/llm%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6langchain/</link>

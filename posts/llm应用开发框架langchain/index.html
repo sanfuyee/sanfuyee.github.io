@@ -4,9 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>易三福</title>
+    <title>LLM应用开发框架LangChain | 易三福</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="The last theme you&#39;ll ever need. Maybe.">
+    <meta name="description" content="2022年11月30日OpenAI发布了ChatGPT，它以对话的形式回答用户提出的各种问题。不同于以往常见的各种人工智障，ChatGPT具备超强的语言理解能力、逻辑推理能力和语言表达能力。它的回答几乎达到了普通人类的水准，强大到怀疑ChatGPT背后有一个客服在回复用户的问题。ChatGPT一经问世便引起了学术界和工业界的轰动，它代表通用人工智能（AGI）已经达到了一个前所未有的高度，同时预示着AI新时代的到来。国内外的大厂包括谷歌、微软、Meta、百度、阿里、腾讯、科大讯飞等都纷纷跟进支撑ChatGPT的底层技术大语言模型LLM，也陆续发布了诸如Board，Bing Chat，LLaMA，文心一言，ChatGLM，星火认知大模型等类ChatGPT产品和模型。
+ChatGPT引领的AI革命，模型落地的困难，LangChain的目标
+LangChain的模块介绍，示例demo
+技术展望">
     <meta name="generator" content="Hugo 0.110.0">
     
     
@@ -29,14 +32,28 @@
 
     
     
-    <meta property="og:title" content="404 Page not found" />
-<meta property="og:description" content="The last theme you&#39;ll ever need. Maybe." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://sanfuyee.github.io/404.html" />
-<meta itemprop="name" content="404 Page not found">
-<meta itemprop="description" content="The last theme you&#39;ll ever need. Maybe."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="404 Page not found"/>
-<meta name="twitter:description" content="The last theme you&#39;ll ever need. Maybe."/>
+    <meta property="og:title" content="LLM应用开发框架LangChain" />
+<meta property="og:description" content="2022年11月30日OpenAI发布了ChatGPT，它以对话的形式回答用户提出的各种问题。不同于以往常见的各种人工智障，ChatGPT具备超强的语言理解能力、逻辑推理能力和语言表达能力。它的回答几乎达到了普通人类的水准，强大到怀疑ChatGPT背后有一个客服在回复用户的问题。ChatGPT一经问世便引起了学术界和工业界的轰动，它代表通用人工智能（AGI）已经达到了一个前所未有的高度，同时预示着AI新时代的到来。国内外的大厂包括谷歌、微软、Meta、百度、阿里、腾讯、科大讯飞等都纷纷跟进支撑ChatGPT的底层技术大语言模型LLM，也陆续发布了诸如Board，Bing Chat，LLaMA，文心一言，ChatGLM，星火认知大模型等类ChatGPT产品和模型。
+ChatGPT引领的AI革命，模型落地的困难，LangChain的目标
+LangChain的模块介绍，示例demo
+技术展望" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sanfuyee.github.io/posts/llm%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6langchain/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-20T22:19:16+08:00" />
+<meta property="article:modified_time" content="2023-05-20T22:19:16+08:00" />
+<meta itemprop="name" content="LLM应用开发框架LangChain">
+<meta itemprop="description" content="2022年11月30日OpenAI发布了ChatGPT，它以对话的形式回答用户提出的各种问题。不同于以往常见的各种人工智障，ChatGPT具备超强的语言理解能力、逻辑推理能力和语言表达能力。它的回答几乎达到了普通人类的水准，强大到怀疑ChatGPT背后有一个客服在回复用户的问题。ChatGPT一经问世便引起了学术界和工业界的轰动，它代表通用人工智能（AGI）已经达到了一个前所未有的高度，同时预示着AI新时代的到来。国内外的大厂包括谷歌、微软、Meta、百度、阿里、腾讯、科大讯飞等都纷纷跟进支撑ChatGPT的底层技术大语言模型LLM，也陆续发布了诸如Board，Bing Chat，LLaMA，文心一言，ChatGLM，星火认知大模型等类ChatGPT产品和模型。
+ChatGPT引领的AI革命，模型落地的困难，LangChain的目标
+LangChain的模块介绍，示例demo
+技术展望"><meta itemprop="datePublished" content="2023-05-20T22:19:16+08:00" />
+<meta itemprop="dateModified" content="2023-05-20T22:19:16+08:00" />
+<meta itemprop="wordCount" content="5">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="LLM应用开发框架LangChain"/>
+<meta name="twitter:description" content="2022年11月30日OpenAI发布了ChatGPT，它以对话的形式回答用户提出的各种问题。不同于以往常见的各种人工智障，ChatGPT具备超强的语言理解能力、逻辑推理能力和语言表达能力。它的回答几乎达到了普通人类的水准，强大到怀疑ChatGPT背后有一个客服在回复用户的问题。ChatGPT一经问世便引起了学术界和工业界的轰动，它代表通用人工智能（AGI）已经达到了一个前所未有的高度，同时预示着AI新时代的到来。国内外的大厂包括谷歌、微软、Meta、百度、阿里、腾讯、科大讯飞等都纷纷跟进支撑ChatGPT的底层技术大语言模型LLM，也陆续发布了诸如Board，Bing Chat，LLaMA，文心一言，ChatGLM，星火认知大模型等类ChatGPT产品和模型。
+ChatGPT引领的AI革命，模型落地的困难，LangChain的目标
+LangChain的模块介绍，示例demo
+技术展望"/>
 
 	
   </head>
@@ -44,6 +61,8 @@
   <body class="ma0 avenir bg-near-white">
 
     
+   
+  
 
   <header>
     <div class="bg-black">
@@ -114,13 +133,72 @@
   </header>
 
 
+
     <main class="pb7" role="main">
       
-    <article class="center cf pv5 measure-wide-l">
-      <h1>
-        This is not the page you were looking for
-      </h1>
-    </article>
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">LLM应用开发框架LangChain</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-05-20T22:19:16+08:00">五月 20, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>    2022年11月30日OpenAI发布了ChatGPT，它以对话的形式回答用户提出的各种问题。不同于以往常见的各种人工智障，ChatGPT具备超强的语言理解能力、逻辑推理能力和语言表达能力。它的回答几乎达到了普通人类的水准，强大到怀疑ChatGPT背后有一个客服在回复用户的问题。ChatGPT一经问世便引起了学术界和工业界的轰动，它代表通用人工智能（AGI）已经达到了一个前所未有的高度，同时预示着AI新时代的到来。国内外的大厂包括谷歌、微软、Meta、百度、阿里、腾讯、科大讯飞等都纷纷跟进支撑ChatGPT的底层技术大语言模型LLM，也陆续发布了诸如Board，Bing Chat，LLaMA，文心一言，ChatGLM，星火认知大模型等类ChatGPT产品和模型。</p>
+<hr>
+<ol>
+<li>
+<p>ChatGPT引领的AI革命，模型落地的困难，LangChain的目标</p>
+</li>
+<li>
+<p>LangChain的模块介绍，示例demo</p>
+</li>
+<li>
+<p>技术展望</p>
+</li>
+</ol>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
 
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
