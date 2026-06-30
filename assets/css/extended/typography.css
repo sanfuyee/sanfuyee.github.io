@@ -1,0 +1,52 @@
+.post-title,
+.entry-header,
+.entry-content,
+.post-content {
+    font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", Georgia, "Times New Roman", serif;
+}
+
+.post-title {
+    font-weight: 600;
+    line-height: 1.38;
+}
+
+.post-content {
+    color: var(--content);
+    font-size: 18px;
+    line-height: 1.9;
+    letter-spacing: 0;
+}
+
+.post-content p {
+    margin: 1.15em 0;
+}
+
+.post-content li {
+    margin-top: 0.35em;
+    margin-bottom: 0.35em;
+}
+
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+    font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", Georgia, "Times New Roman", serif;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.post-content code,
+.post-content pre,
+.post-content kbd {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+.entry-content {
+    line-height: 1.75;
+}
+
+@media (max-width: 768px) {
+    .post-content {
+        font-size: 17px;
+        line-height: 1.85;
+    }
+}
