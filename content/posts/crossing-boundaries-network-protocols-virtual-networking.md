@@ -6,6 +6,7 @@ tags: ["networking", "protocols", "proxy", "vpn", "sd-wan"]
 cover:
   image: "/images/crossing-boundaries-cover.jpeg"
   alt: "穿越边界：网络协议与现代虚拟组网系统指南封面"
+  hiddenInList: true
 ---
 
 ## 一、 为什么在大陆不能访问 Google / YouTube？
