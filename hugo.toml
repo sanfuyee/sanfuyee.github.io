@@ -34,7 +34,7 @@ disableSpecial1stPost = false
 
 [params.homeInfoParams]
 Title = 'Sanfuyee'
-Content = 'Notes, projects, and writing.'
+Content = 'Notes, projects, and writing. Welcome to contact me: sanfuyee@gmail.com'
 
 [[menu.main]]
 identifier = 'posts'
