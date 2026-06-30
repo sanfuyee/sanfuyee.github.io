@@ -3,6 +3,9 @@ title: "穿越边界：从网络协议到现代虚拟组网的系统指南"
 date: 2026-06-30T00:00:00+08:00
 draft: false
 tags: ["networking", "protocols", "proxy", "vpn", "sd-wan"]
+cover:
+  image: "/images/crossing-boundaries-cover.jpeg"
+  alt: "穿越边界：网络协议与现代虚拟组网系统指南封面"
 ---
 
 ## 一、 为什么在大陆不能访问 Google / YouTube？
