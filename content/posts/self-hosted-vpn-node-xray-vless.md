@@ -3,6 +3,10 @@ title: "自建 VPN 节点：Xray VLESS 部署简明指南"
 date: 2026-06-30T15:40:00+08:00
 draft: false
 tags: ["xray", "vless", "vpn", "networking"]
+cover:
+  image: "/images/self-hosted-vpn-xray-vless-cover.png"
+  alt: "Self-hosted VPN: Xray and VLESS cover"
+  hiddenInList: true
 ---
 
 > 本文记录一套自建节点的最小化部署流程。示例中的域名、IP、UUID、私钥、端口均已脱敏，请替换为自己的配置。
