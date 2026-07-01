@@ -1,3 +1,49 @@
 {{- if site.Params.ShowPageViews -}}
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+  (function () {
+    var value = document.getElementById("busuanzi_value_page_pv");
+    var container = document.getElementById("busuanzi_container_page_pv");
+
+    if (!value || !container || !window.localStorage) {
+      loadCounter();
+      return;
+    }
+
+    var ttlHours = {{ site.Params.PageViewsTTLHours | default 24 }};
+    var now = Date.now();
+    var key = "pageview:" + window.location.pathname;
+    var cached = null;
+
+    try {
+      cached = JSON.parse(localStorage.getItem(key));
+    } catch (error) {
+      cached = null;
+    }
+
+    if (cached && cached.value && now - cached.countedAt < ttlHours * 60 * 60 * 1000) {
+      value.textContent = cached.value;
+      return;
+    }
+
+    var observer = new MutationObserver(function () {
+      var count = value.textContent.trim();
+      if (count && count !== "-") {
+        try {
+          localStorage.setItem(key, JSON.stringify({ value: count, countedAt: now }));
+        } catch (error) {}
+        observer.disconnect();
+      }
+    });
+
+    observer.observe(value, { childList: true, characterData: true, subtree: true });
+    loadCounter();
+
+    function loadCounter() {
+      var script = document.createElement("script");
+      script.async = true;
+      script.src = "https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
+      document.body.appendChild(script);
+    }
+  })();
+</script>
 {{- end -}}
