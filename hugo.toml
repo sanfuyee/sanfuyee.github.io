@@ -31,6 +31,13 @@ ShowWordCount = true
 ShowRssButtonInSectionTermList = true
 UseHugoToc = true
 disableSpecial1stPost = false
+comments = true
+
+[params.utterances]
+repo = 'sanfuyee/sanfuyee.github.io'
+issueTerm = 'pathname'
+label = 'comments'
+theme = 'preferred-color-scheme'
 
 [params.homeInfoParams]
 Title = 'Sanfuyee'

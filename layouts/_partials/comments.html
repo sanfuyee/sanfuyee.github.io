@@ -1,0 +1,14 @@
+{{- $utterances := site.Params.utterances -}}
+{{- if and $utterances $utterances.repo -}}
+<section class="comments" aria-label="Comments">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="{{ $utterances.repo }}"
+    issue-term="{{ $utterances.issueTerm | default "pathname" }}"
+    label="{{ $utterances.label | default "comments" }}"
+    theme="{{ $utterances.theme | default "preferred-color-scheme" }}"
+    crossorigin="anonymous"
+    async>
+  </script>
+</section>
+{{- end -}}
