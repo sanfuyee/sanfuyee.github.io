@@ -32,6 +32,7 @@ ShowRssButtonInSectionTermList = true
 UseHugoToc = true
 disableSpecial1stPost = false
 comments = true
+ShowPageViews = true
 
 [params.utterances]
 repo = 'sanfuyee/sanfuyee.github.io'
