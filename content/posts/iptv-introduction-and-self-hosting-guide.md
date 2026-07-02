@@ -1,6 +1,6 @@
 ---
 title: "IPTV 入门：协议、客户端、公开源与自部署方案"
-date: 2026-07-02T18:30:00+08:00
+date: 2026-07-02T11:10:00+08:00
 draft: false
 tags: ["iptv", "streaming", "hls", "media-server", "self-hosting"]
 cover:
