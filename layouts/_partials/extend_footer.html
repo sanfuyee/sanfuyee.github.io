@@ -47,3 +47,105 @@
   })();
 </script>
 {{- end -}}
+
+<!-- Background music player -->
+<audio id="bgm" src="{{ "music/xueqianxun.mp3" | relURL }}" loop preload="auto"></audio>
+
+<button id="bgm-toggle" type="button" aria-label="播放/暂停背景音乐" title="背景音乐">
+  <svg id="bgm-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"></svg>
+</button>
+
+<style>
+  #bgm-toggle {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--entry, #fff);
+    background: var(--primary, #333);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    transition: transform 0.15s ease, opacity 0.15s ease;
+    opacity: 0.85;
+  }
+  #bgm-toggle:hover { transform: scale(1.08); opacity: 1; }
+  #bgm-icon { fill: currentColor; }
+  #bgm-toggle.bgm-spinning #bgm-icon { animation: bgm-spin 6s linear infinite; }
+  @keyframes bgm-spin { to { transform: rotate(360deg); } }
+</style>
+
+<script>
+  (function () {
+    var audio = document.getElementById("bgm");
+    var btn = document.getElementById("bgm-toggle");
+    var icon = document.getElementById("bgm-icon");
+    if (!audio || !btn || !icon) return;
+
+    var PLAY_PATH = "M8 5v14l11-7z";
+    var PAUSE_PATH = "M6 5h4v14H6zM14 5h4v14h-4z";
+    var TIME_KEY = "bgm-time";
+    var PAUSED_KEY = "bgm-paused";
+
+    // Restore where the track left off on the previous page.
+    var savedTime = parseFloat(localStorage.getItem(TIME_KEY));
+    if (!isNaN(savedTime)) {
+      audio.addEventListener("loadedmetadata", function () {
+        if (savedTime < audio.duration) audio.currentTime = savedTime;
+      });
+    }
+
+    function render() {
+      var playing = !audio.paused;
+      icon.innerHTML = '<path d="' + (playing ? PAUSE_PATH : PLAY_PATH) + '"></path>';
+      btn.classList.toggle("bgm-spinning", playing);
+    }
+
+    function tryPlay() {
+      var p = audio.play();
+      if (p && p.catch) p.catch(function () { /* autoplay blocked; wait for a gesture */ });
+    }
+
+    // Autoplay & loop by default, unless the user explicitly paused before.
+    var userPaused = localStorage.getItem(PAUSED_KEY) === "1";
+    if (!userPaused) {
+      tryPlay();
+      // Browsers block autoplay until the first interaction — start then.
+      var kick = function () {
+        if (localStorage.getItem(PAUSED_KEY) !== "1") tryPlay();
+        ["pointerdown", "keydown", "touchstart"].forEach(function (e) {
+          document.removeEventListener(e, kick);
+        });
+      };
+      ["pointerdown", "keydown", "touchstart"].forEach(function (e) {
+        document.addEventListener(e, kick, { once: true });
+      });
+    }
+
+    btn.addEventListener("click", function () {
+      if (audio.paused) {
+        localStorage.setItem(PAUSED_KEY, "0");
+        tryPlay();
+      } else {
+        localStorage.setItem(PAUSED_KEY, "1");
+        audio.pause();
+      }
+    });
+
+    audio.addEventListener("play", render);
+    audio.addEventListener("pause", render);
+
+    // Remember playback position so music stays continuous across page loads.
+    audio.addEventListener("timeupdate", function () {
+      localStorage.setItem(TIME_KEY, audio.currentTime);
+    });
+
+    render();
+  })();
+</script>
